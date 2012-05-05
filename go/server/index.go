@@ -15,7 +15,6 @@ func init() {
 	http.HandleFunc("/i/", ImageProxyHandler)
 	http.HandleFunc("/getapi/", GetApiHandler)
 	http.HandleFunc("/oauth/", OAuthHandler)
-	http.HandleFunc("/test/", TestHandler)
 }
 
 var (
