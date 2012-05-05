@@ -1,0 +1,6 @@
+package server
+
+const(
+	OAUTH_KEY = "YOUR APP OAUTH KEY"
+	OAUTH_SECRET = "YOUR APP OAUTH SECRET"
+)

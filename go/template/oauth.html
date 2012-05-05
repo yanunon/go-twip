@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>Twip 4 - Configuration</title>
+<link rel="stylesheet" type="text/css" href="/static/style.css" media="all" />
+<meta name="robots" content="noindex,nofollow">
+</head>
+<body>
+	<h1><a href="/">Twip<sup title="Version 4">4</sup></a></h1>
+	<h2>Twitter API Proxy, redefined.</h2>
+{{if .GetType1}}
+	<div>
+	
+		<h3>Twip 配置</h3>
+		
+		<form action="" method="post">
+		
+			<ul class="clearfix">
+				<li><a class="active" href="/oauth/?type=1">OAuth 验证</a></li>
+				<li><a href="/oauth/?type=2">模拟 OAuth 验证</a></li>
+			</ul>
+			
+			<hr class="clear" />
+			
+			<p>
+				<label for="url_suffix">自定义 URL 地址</label>
+                <input class="half" type="text" value="{{printf "%s/o/" .BaseUrl}}" id="base_url" disabled autocomplete="off" />
+				<input class="half" type="text" value="" id="url_suffix" autocomplete="off" name="url_suffix" />
+			</p>
+			
+			<input type="submit" value="提交认证" class="button">
+		
+		</form>
+	</div>		
+	<div id="footer">
+		2012 &copy; <a href="http://code.google.com/p/twip/">Twip Project</a>
+	</div>
+</body>
+</html>
+{{else}}
+	<div>
+	
+		<h3>Twip 配置</h3>
+		
+		<form action="" method="post">
+		
+			<ul class="clearfix">
+				<li><a href="/oauth/?type=1">OAuth 验证</a></li>
+				<li><a class="active" href="/oauth/?type=2">模拟 OAuth 验证</a></li>
+			</ul>
+			
+			<hr class="clear" />
+			
+			<p>
+				<label for="url_suffix">1. 自定义 URL 地址</label>
+                <input class="half" type="text" value="{{printf "%s/o/" .BaseUrl}}" id="base_url" disabled autocomplete="off" />
+				<input class="half" type="text" value="" id="url_suffix" name="url_suffix" autocomplete="off" />
+			</p>
+			
+			<p>
+				<label for="username">2. 你的 Twitter 用户名</label>
+				<input type="text" value="" id="username" name="username" autocomplete="off" />
+			</p>
+			
+			<p>
+				<label for="password">3. 你的 Twitter 密码</label>
+				<input type="password" value="" id="password" name="password" autocomplete="off" />
+			</p>
+			
+			<input type="submit" value="提交认证" class="button" />
+		
+		</form>
+		
+	</div>		
+	<div id="footer">
+		2012 &copy; <a href="http://code.google.com/p/twip/">Twip Project</a>
+	</div>
+</body>
+</html>
+{{end}}
