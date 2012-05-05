@@ -1,4 +1,10 @@
-这是golang改写的Twip(一个Twitter API代理，源码在https://github.com/yegle/twip )，可部署在Google Appengine上。
+这是golang改写的Twip(一个Twitter API代理，源码在 https://github.com/yegle/twip )，可部署在Google Appengine上。
+
+目前能正常工作的是:
+O mode: ALL
+T mode: Chromed Bird
 
 墙内访问建议在hosts文件中添加下面一行，并以https方式访问: 
     203.208.45.200 your-app-id.appspot.com
+其它使用方法，请参考:
+	https://github.com/yegle/twip/wiki/twip-User-Guide
