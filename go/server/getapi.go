@@ -1,13 +1,15 @@
 package server
+
 import (
 	"net/http"
 	"strings"
+
 //	"text/template"
 )
 
 type GetApiParam struct {
-	GetApi string
-	BaseUrl string
+	GetApi   string
+	BaseUrl  string
 	ImageUrl string
 }
 
@@ -22,4 +24,3 @@ func GetApiHandler(w http.ResponseWriter, r *http.Request) {
 	var getApiParam = GetApiParam{get_api, baseUrl, img_api}
 	templates.ExecuteTemplate(w, "getapi.html", getApiParam)
 }
-

@@ -1,30 +1,28 @@
 package server
 
 import (
-	"net/http"
-	"net/url"
-	"fmt"
-	"strings"
-	"io/ioutil"
 	"appengine"
 	"appengine/urlfetch"
+	"fmt"
 	"github.com/garyburd/go-oauth/oauth"
+	"io/ioutil"
+	"net/http"
+	"net/url"
+	"strings"
 )
-
-
 
 func OverrideHandler(w http.ResponseWriter, r *http.Request) {
 	//baseUrl := GetBaseUrl(r)
 	c := appengine.NewContext(r)
 	httpClient := urlfetch.Client(c)
 	//c.Infof("Request:%+v\n", r)
-	urlParts := strings.Split(r.URL.Path,"/")
+	urlParts := strings.Split(r.URL.Path, "/")
 	urlSuffix := urlParts[2]
 
 	file_type_idx := strings.LastIndex(r.URL.Path, ".")
 	file_type := ""
 	if file_type_idx > -1 {
-		file_type = r.URL.Path[file_type_idx + 1:]
+		file_type = r.URL.Path[file_type_idx+1:]
 	}
 
 	screen_name, _, err := GetBasicAuth(r)
@@ -41,7 +39,7 @@ func OverrideHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	cred := oauth.Credentials{
-		Token: oauthUserData.OAuthToken,
+		Token:  oauthUserData.OAuthToken,
 		Secret: oauthUserData.OAuthTokenSecret,
 	}
 	//c.Infof("%+v\n", cred)
@@ -61,7 +59,7 @@ func OverrideHandler(w http.ResponseWriter, r *http.Request) {
 	forwardUrl = forwardUrl + "?" + params.Encode()
 	forwardBody := ""
 	if r.Body != nil {
-		forwardBodys, _ := ioutil.ReadAll(r.Body) 
+		forwardBodys, _ := ioutil.ReadAll(r.Body)
 		forwardBody = string(forwardBodys)
 		c.Infof("Forward Body:%s\n", forwardBody)
 	}

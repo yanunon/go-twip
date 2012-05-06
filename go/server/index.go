@@ -2,9 +2,9 @@ package server
 
 import (
 	"net/http"
-//	"fmt"
-	"html/template"
+	//	"fmt"
 	"code.google.com/p/gorilla/appengine/sessions"
+	"html/template"
 )
 
 //appengine enter point
@@ -31,9 +31,6 @@ var (
 	sessionsMStore = sessions.NewMemcacheStore("", []byte("kite-a-lot-secret"))
 )
 
-
-
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
-	//fmt.Fprint(w, "哈哈")
 	templates.ExecuteTemplate(w, "index.html", nil)
 }
