@@ -15,7 +15,7 @@ import (
 
 var (
 	expand_tco_xml_re         = regexp.MustCompile("<url>([\\w\\.:/]+?)</url>\\s+?<display_url>[\\w\\.:/]+?</display_url>\\s+?<expanded_url>([\\w\\.:/]+?)</expanded_url>")
-	expand_tco_json_re        = regexp.MustCompile("\"url\":\"([^\"]+?)\",\"indices\":.+?,\"expanded_url\":\"([^\"]+?)\"")
+	expand_tco_json_re        = regexp.MustCompile("\"url\":\"([^\"]+?)\",[^{}]*?\"expanded_url\":\"([^\"]+?)\"")
 	parse_profile_img_json_re = regexp.MustCompile("\"(https?:\\\\/\\\\/[\\w]+?\\.twimg\\.com)([^\"]+?)\"")
 	parse_profile_img_xml_re  = regexp.MustCompile(">(https?://[\\w]+?\\.twimg\\.com)([^<]+?)<")
 )
